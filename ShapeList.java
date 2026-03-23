@@ -2,7 +2,11 @@ import java.util.ArrayList;
 
 public class ShapeList {
 
-    ArrayList<Shape> listOfShapes = new ArrayList<>();
+    private ArrayList<Shape> listOfShapes;
+
+    public ShapeList() {
+        listOfShapes = new ArrayList<>();
+    }
 
     public void addShape(Shape s) {
         listOfShapes.add(s);
@@ -28,11 +32,33 @@ public class ShapeList {
         }
     }
 
+    public void scale(int factor, boolean sign) {
+        for (Shape s : listOfShapes) {
+            s.scale(factor, sign);
+        }
+    }
+
+    public double area(int pos) {
+        if (pos >= 0 && pos < listOfShapes.size()) {
+            return listOfShapes.get(pos).getArea();
+        }
+        return -1;
+    }
+
+    public double perimeter(int pos) {
+        if (pos >= 0 && pos < listOfShapes.size()) {
+            return listOfShapes.get(pos).getPerimeter();
+        }
+        return -1;
+    }
+
     public String display() {
         String result = "";
+
         for (Shape s : listOfShapes) {
             result = result + s.display() + "\n";
         }
+
         return result;
     }
 }
