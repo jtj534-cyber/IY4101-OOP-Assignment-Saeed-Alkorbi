@@ -17,7 +17,11 @@ public class Shape {
     }
 
     public void translate(int dx, int dy){
-        position.translate(dx,dy);
+        position.translate(dx, dy);
+    }
+
+    public void scale(int factor, boolean sign){
+        position.scale(factor, sign);
     }
 
     public double getArea(){
@@ -29,7 +33,6 @@ public class Shape {
     }
 
     public String display(){
-        return "Shape with " + sides + " sides";
+        return "Shape with " + sides + " sides at " + position.display();
     }
-
 }
